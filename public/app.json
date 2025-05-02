@@ -1,9 +1,9 @@
 {
-    "id": "manjo-sulut-update",
+    "id": "website-desa-koka",
     "start_url": "/",
-    "name": "ManjoSulut.",
-    "short_name": "Manjo.",
-    "description": "Satu Pintu, Layanan Integrasi Untuk Anda",
+    "name": "Desa Koka",
+    "short_name": "Desa Koka",
+    "description": "Website resmi Desa Koka",
     "display": "standalone",
     "background_color": "#F9FCFF",
     "theme_color": "#0A42CE",

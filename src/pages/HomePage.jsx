@@ -1,22 +1,23 @@
 import React from 'react';
 import Hero from '../components/Hero';
-import Layanan from '../components/home/layanan';
-import KPPNSULUT from '../components/home/kppn';
-import Publikasi from '../components/home/publikasi';
+import JelajahDesa from '../components/home/jelajah';
+import PetaDesa from '../components/home/petaDesa';
 import Footer from '../components/Footer';
-import JamLayanan from '../components/home/jamLayanan';
-import InstallButton from '../components/installButton';
+import CpButton from '../components/cpButton';
+import RingkasanDesa from '../components/home/ringkasan';
 
 
 function HomePage() {
   return (
     <main>
       <Hero />
-      <Layanan />
-      <JamLayanan />
-      <KPPNSULUT />
-      <Publikasi />
-      <InstallButton/>
+      <RingkasanDesa/>
+      <div id='jelajah-desa'>
+       <JelajahDesa/>
+      </div>
+
+      <PetaDesa/>
+      <CpButton/>
       <Footer />
 
     </main>

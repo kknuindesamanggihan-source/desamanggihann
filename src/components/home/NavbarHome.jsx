@@ -2,39 +2,40 @@ import React, { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion } from "framer-motion";
 import logoMinahasa from "../../assets/logo-kab-minahasa.png";
+import { Link } from "react-router-dom";
 
 const NavbarMenu = [
   {
     id: 1,
     title: "Beranda",
-    href: "/",
+    to: "/",
   },
   {
     id: 2,
-    title: "Profil",
-    href: "#",
+    title: "Profil Desa",
+    to: "/profil-desa",
     submenu: [
-      { id: 1, title: "Visi & Misi", href: "/visi-misi" },
-      { id: 2, title: "Struktur Pemerintahan Desa", href: "/struktur" },
-      { id: 3, title: "Sejarah Desa", href: "/sejarah-desa" },
-      { id: 4, title: "Peta Desa", href: "/peta-desa" },
+      { id: 1, title: "Visi Misi", to: "/profil-desa#visimisi" },
+      { id: 2, title: "Struktur Pemerintahan Desa", to: "/profil-desa#struktur" },
+      { id: 3, title: "Sejarah", to: "/profil-desa#sejarah" },
+      { id: 4, title: "Wilayah Desa", to: "/profil-desa#wilayah" },
     ],
   },
-  { id: 3, title: "Infografis", href: "/infografis" },
-  { id: 4, title: "Potensi", href: "/potensi" },
-  { id: 5, title: "Layanan", href: "/layanan" },
+  { id: 3, title: "Infografis", to: "/infografis" },
+  { id: 4, title: "Potensi", to: "/potensi-desa" },
+  { id: 5, title: "Berita", to: "/berita" },
 ];
 
-const Navbar = () => {
+const NavbarHome = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); 
 
   return (
-    <nav className="container py-8 relative z-20">
+    <nav className="items-center py-8 relative z-20">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        className="px-2 md:px-4 flex justify-between items-center "
+        className="px-4 md:px-6 gap-12 flex justify-between lg:justify-center items-center "
       >
         <div className="flex flex-row justify-start items-center gap-2 md:gap-4">
           <img
@@ -44,24 +45,24 @@ const Navbar = () => {
           /> 
           <div className="flex flex-col">
             <h1 className="font-bold text-base md:text-lg lg:text-xl text-light">Desa Koka</h1>
-            <h1 className="font-normal text-sm md:text-base lg:text-lg text-light">Kabupaten Minahasa</h1>
+            <h1 className="font-normal text-sm md:text-base text-light">Kabupaten Minahasa</h1>
           </div>
         </div>
         
         <div className="hidden lg:flex items-center">
-          <ul className="flex items-center gap-8">
+          <ul className="flex items-center gap-4">
             {NavbarMenu.map((menu) => (
               <li key={menu.id} className="relative group">
                 {menu.submenu ? (
                   <>
-                    <a
-                      href={menu.href}
+                    <Link
+                      to={menu.to}
                       className="inline-block py-2 px-3 text-light text-md font-semibold cursor-pointer hover:text-secondary duration-200 hover:font-bold"
                       onMouseEnter={() => setIsDropdownOpen(true)}
                       onMouseLeave={() => setIsDropdownOpen(false)}
                     >
                       {menu.title}
-                    </a>
+                    </Link>
                     {isDropdownOpen && (
                       <ul
                         className="absolute left-0 bg-light bg-opacity-50 shadow-lg rounded-lg p-2 w-48"
@@ -70,24 +71,24 @@ const Navbar = () => {
                       >
                         {menu.submenu.map((submenuItem) => (
                           <li key={submenuItem.id}>
-                            <a
-                              href={submenuItem.href}
+                            <Link
+                              to={submenuItem.to}
                               className="block py-2 px-2 text-primary text-base font-medium hover:bg-bgBlue hover:text-dark duration-200 rounded-lg"
                             >
                               {submenuItem.title}
-                            </a>
+                            </Link>
                           </li>
                         ))}
                       </ul>
                     )}
                   </>
                 ) : (
-                  <a
-                    href={menu.href}
+                  <Link
+                    to={menu.to}
                     className="inline-block py-2 px-3 text-light text-md font-semibold cursor-pointer hover:text-secondary duration-200 hover:font-bold"
                   >
                     {menu.title}
-                  </a>
+                  </Link>
                 )}
               </li>
             ))}
@@ -95,21 +96,19 @@ const Navbar = () => {
         </div>
 
         <div className="lg:hidden flex flex-row items-center gap-4">
-        <button  
-          onClick={() => setIsMenuOpen(!isMenuOpen)} 
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-        >
-          {isMenuOpen ? (
-            <FiX className="text-3xl text-light" aria-hidden="true" />
-          ) : (
-            <FiMenu className="text-3xl text-light" aria-hidden="true" /> 
-          )}
-        </button>
-
-          
-
+          <button  
+            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {isMenuOpen ? (
+              <FiX className="text-3xl text-light" aria-hidden="true" />
+            ) : (
+              <FiMenu className="text-3xl text-light" aria-hidden="true" /> 
+            )}
+          </button>
         </div>
       </motion.div>
+
       {isMenuOpen && (
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -121,35 +120,35 @@ const Navbar = () => {
               <li key={menu.id} className="relative group">
                 {menu.submenu ? (
                   <div className="space-y-2">
-                    <a
-                      href={menu.href}
+                    <Link
+                      to={menu.to}
                       className="py-2 px-3 text-primary text-md font-semibold cursor-pointer hover:text-secondary duration-200 hover:font-bold"
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     >
                       {menu.title}
-                    </a>
+                    </Link>
                     {isDropdownOpen && (
                       <ul className="bg-light bg-opacity-50 shadow-lg rounded-lg p-2 w-full">
                         {menu.submenu.map((submenuItem) => (
                           <li key={submenuItem.id}>
-                            <a
-                              href={submenuItem.href}
+                            <Link
+                              to={submenuItem.to}
                               className="block py-2 px-2 text-primary text-base font-medium hover:bg-bgBlue hover:text-dark duration-200 rounded-lg"
                             >
                               {submenuItem.title}
-                            </a>
+                            </Link>
                           </li>
                         ))}
                       </ul>
                     )}
                   </div>
                 ) : (
-                  <a
-                    href={menu.href}
+                  <Link
+                    to={menu.to}
                     className="py-2 px-3 text-primary text-md font-semibold cursor-pointer hover:text-secondary duration-200 hover:font-bold"
                   >
                     {menu.title}
-                  </a>
+                  </Link>
                 )}
               </li>
             ))}
@@ -160,5 +159,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
-
+export default NavbarHome;

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { FaChevronCircleDown } from "react-icons/fa";
-import gknSampingWebP from "../assets/gknSamping.webp";
-import kantorDjpbWebP from "../assets/kantorDjpb.webp";
+import kantorDesaDepan from '../assets/kantor-desa-tengah.jpg';
+import kantorDesaSamping from '../assets/kantor-desa-samping.jpg';
 import { motion, AnimatePresence } from "framer-motion";
 import NavbarHome from "./home/NavbarHome";
 import { Helmet } from "react-helmet";
 
-const images = [gknSampingWebP, kantorDjpbWebP];
+const images = [kantorDesaSamping, kantorDesaDepan];
 
 export const FadeUp = (delay) => {
   return {
@@ -39,7 +39,7 @@ const Hero = () => {
   }, []);
 
   const handleScrollToLayanan = () => {
-    const layananSection = document.getElementById("layanan-home");
+    const layananSection = document.getElementById("jelajah-desa");
     if (layananSection) {
       layananSection.scrollIntoView({ behavior: "smooth" });
     }
@@ -48,8 +48,8 @@ const Hero = () => {
   return (
     <section className="relative bg-light overflow-hidden max-h-[500px] lg:max-h-[600px] h-screen">
       <Helmet>
-        <meta name="description" content="Manjo Sulut - Aplikasi layanan terpadu untuk akses layanan di DJPb Sulut." />
-        <link rel="preload" as="image" href={gknSampingWebP} />
+        <meta name="description" content="Website Resmi Desa Koka" />
+        <link rel="preload" as="image" href={kantorDesaDepan} />
       </Helmet>
 
       <div className="absolute top-0 left-0 right-0 z-20">
@@ -68,7 +68,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.h1
-            className=" text-base md:text-lg lg:text-4xl font-bold !leading-snug text-white"
+            className=" text-base md:text-xl lg:text-4xl font-bold !leading-snug text-white"
             style={{
               textShadow: "1px 1px 4px rgba(0, 0, 0, 0.5)",
             }}
@@ -107,16 +107,16 @@ const Hero = () => {
           key={currentImage}
           src={images[currentImage]}
           alt="Background Hero"
-          loading="lazy" // Lazy loading
+          loading="lazy" 
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1 }} // Shorter transition duration
+          transition={{ duration: 1 }} 
         />
       </AnimatePresence>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-primary via-primary to-transparent opacity-75"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-primary via-primary to-transparent opacity-80"></div>
     </section>
   );
 };

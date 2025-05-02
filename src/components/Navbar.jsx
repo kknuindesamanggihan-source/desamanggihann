@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import logoDjpb from "../assets/logoDjpbSulut.webp";
+import logoMinahasa from "../assets/logo-kab-minahasa.png";
 import { FiMenu, FiX } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const NavbarMenu = [
   {
@@ -11,21 +12,25 @@ const NavbarMenu = [
   },
   {
     id: 2,
-    title: "Layanan",
-    href: "#",
+    title: "Profil Desa",
+    href: "/profil-desa",
     submenu: [
-      { id: 1, title: "Layanan Pengaduan", href: "/layanan-pengaduan" },
-      { id: 2, title: "Layanan & Informasi", href: "/layanan-informasi" },
+      { id: 1, title: "Visi Misi", href: "/profil-desa#visimisi" },
+      { id: 2, title: "Struktur Pemerintahan Desa", href: "/profil-desa#struktur" },
+      { id: 3, title: "Wilayah Desa", href: "/profil-desa#wilayah" },
+      { id: 4, title: "Sejarah", href: "/profil-desa#sejarah" },
+
     ],
   },
-  { id: 3, title: "KPPN", href: "/kppn" },
-  { id: 4, title: "Publikasi", href: "/publikasi" },
-  { id: 5, title: "Tentang", href: "/tentangkami" },
+  { id: 3, title: "Infografis", href: "/infografis" },
+  { id: 4, title: "Potensi", href: "/potensi-desa" },
+  { id: 5, title: "Berita", href: "/berita" },
+
 ];
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <nav className="relative z-20">
@@ -34,71 +39,69 @@ const Navbar = () => {
         animate={{ opacity: 1, y: 0 }}
         className="py-3 px-6 md:px-12 flex justify-between items-center border-b-2 border-[#d9d9d9] shadow-md"
       >
-        {/* Logo section */}
+        {/* Logo */}
         <div className="flex flex-row justify-start items-center gap-2">
-          <img src={logoDjpb} alt="Logo DJPB Sulawesi Utara" className="w-10 md:w-14 h-auto" />
-          <div className="flex flex-row md:flex-col">
-            <h1 className="font-normal text-xl text-primary">Manjo</h1>
-            <h1 className="font-bold text-xl text-dark">Sulut</h1>
+          <img src={logoMinahasa} alt="Logo Minahasa" className="w-8 md:w-10 h-auto" />
+          <div className="flex flex-col">
+            <h1 className="font-bold text-base md:text-xl text-primary">Desa Koka</h1>
+            <h1 className="font-normal text-sm md:text-xl text-dark">Kabupaten Minahasa</h1>
           </div>
         </div>
 
-        {/* Menu section for large screens */}
+        {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-6">
           <ul className="flex items-center gap-6">
             {NavbarMenu.map((menu) => (
               <li key={menu.id} className="relative group">
                 {menu.submenu ? (
-                  <div>
-                    <a
-                      href={menu.href}
-                      className="inline-block py-2 px-3 text-primary text-md font-semibold cursor-pointer hover:text-secondary duration-200 hover:font-bold"
-                      onMouseEnter={() => setIsDropdownOpen(true)}
-                      onMouseLeave={() => setIsDropdownOpen(false)}
-                    >
+                  <div
+                    onMouseEnter={() => setIsDropdownOpen(true)}
+                    onMouseLeave={() => setIsDropdownOpen(false)}
+                  >
+                    <span className="inline-block py-2 px-3 text-primary text-md font-semibold cursor-pointer hover:text-dark duration-200 hover:font-bold">
                       {menu.title}
-                    </a>
+                    </span>
                     {isDropdownOpen && (
-                      <ul
-                        className="absolute left-0 bg-light bg-opacity-50 shadow-lg rounded-lg p-2 w-48"
-                        onMouseEnter={() => setIsDropdownOpen(true)}
-                        onMouseLeave={() => setIsDropdownOpen(false)}
-                      >
+                      <ul className="absolute left-0 bg-light bg-opacity-50 shadow-lg rounded-lg p-2 w-48">
                         {menu.submenu.map((submenuItem) => (
                           <li key={submenuItem.id}>
-                            <a
-                              href={submenuItem.href}
+                            <Link
+                              to={submenuItem.href}
                               className="block py-2 px-2 text-primary text-base font-medium hover:bg-bgBlue hover:text-dark duration-200 rounded-lg"
                             >
                               {submenuItem.title}
-                            </a>
+                            </Link>
                           </li>
                         ))}
                       </ul>
                     )}
                   </div>
                 ) : (
-                  <a
-                    href={menu.href}
-                    className="inline-block py-2 px-3 text-primary text-md font-semibold cursor-pointer hover:text-secondary duration-200 hover:font-bold"
+                  <Link
+                    to={menu.href}
+                    className="inline-block py-2 px-3 text-primary text-md font-semibold cursor-pointer hover:text-dark duration-200 hover:font-extrabold"
                   >
                     {menu.title}
-                  </a>
+                  </Link>
                 )}
               </li>
             ))}
           </ul>
         </div>
+
+        {/* Mobile Menu Button */}
         <div className="lg:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? (
-              <FiX className="text-3xl" /> 
+              <FiX className="text-3xl" />
             ) : (
-              <FiMenu className="text-3xl" /> 
+              <FiMenu className="text-3xl" />
             )}
           </button>
         </div>
       </motion.div>
+
+      {/* Mobile Menu List */}
       {isMenuOpen && (
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -110,35 +113,34 @@ const Navbar = () => {
               <li key={menu.id} className="relative group">
                 {menu.submenu ? (
                   <div className="space-y-2">
-                    <a
-                      href={menu.href}
+                    <span
                       className="py-2 px-3 text-primary text-md font-semibold cursor-pointer hover:text-secondary duration-200 hover:font-bold"
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     >
                       {menu.title}
-                    </a>
+                    </span>
                     {isDropdownOpen && (
                       <ul className="bg-light border rounded-lg p-2 w-full">
                         {menu.submenu.map((submenuItem) => (
                           <li key={submenuItem.id}>
-                            <a
-                              href={submenuItem.href}
+                            <Link
+                              to={submenuItem.href}
                               className="block py-2 px-2 text-primary text-base font-medium hover:bg-bgBlue hover:text-dark duration-200 rounded-lg"
                             >
                               {submenuItem.title}
-                            </a>
+                            </Link>
                           </li>
                         ))}
                       </ul>
                     )}
                   </div>
                 ) : (
-                  <a
-                    href={menu.href}
+                  <Link
+                    to={menu.href}
                     className="py-2 px-3 text-primary text-md font-semibold cursor-pointer hover:text-secondary duration-200 hover:font-bold"
                   >
                     {menu.title}
-                  </a>
+                  </Link>
                 )}
               </li>
             ))}
