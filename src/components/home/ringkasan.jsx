@@ -36,9 +36,9 @@ const RingkasanDesa = () => {
         
 
           <p className="text-base lg:text-lg text-gray-700 leading-relaxed mt-4">
-            <span className="text-primary md: text-2xl font-semibold">Desa Koka</span> adalah salah satu desa yang terletak di Kecamatan Tombariri, Kabupaten Minahasa, Sulawesi Utara. 
-            Dengan jumlah penduduk sebanyak <span className="text-primary md:text-2xl">2.511 jiwa</span>, desa ini dikenal dengan keindahan alam yang asri, potensi pariwisata yang berkembang, 
-            serta masyarakat yang ramah dan berbudaya. Dalam beberapa tahun terakhir, desa ini aktif mengembangkan 
+            <span className="text-primary md: text-2xl font-semibold">Desa Koka</span> adalah salah satu desa yang terletak di Kecamatan Tombulu, Kabupaten Minahasa, Sulawesi Utara. 
+            Dikenal dengan keindahan alam yang asri, potensi pariwisata yang berkembang, 
+            serta masyarakat yang ramah dan berbudaya. Dalam beberapa tahun terakhir, Desa Koka aktif mengembangkan 
             potensi ekonomi lokal serta meningkatkan layanan digital kepada masyarakat.
           </p>
         </motion.div>
