@@ -18,7 +18,6 @@ const NavbarMenu = [
       { id: 1, title: "Visi Misi", href: "/profil-desa#visimisi" },
       { id: 2, title: "Struktur Pemerintahan Desa", href: "/profil-desa#struktur" },
       { id: 3, title: "Wilayah Desa", href: "/profil-desa#wilayah" },
-      { id: 4, title: "Sejarah", href: "/profil-desa#sejarah" },
 
     ],
   },

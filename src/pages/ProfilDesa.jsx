@@ -4,7 +4,6 @@ import Navbar from "../components/Navbar.jsx";
 import WilayahDesa from "../components/profil/wilayahDesa.jsx";
 import { useLocation } from "react-router-dom";
 import StrukturPemerintahan from "../components/profil/struktur.jsx";
-import SejarahDesa from "../components/profil/sejarahDesa.jsx";
 import Footer from "../components/Footer.jsx";
 import CpButton from "../components/cpButton.jsx";
 
@@ -41,11 +40,6 @@ function ProfilDesa() {
         <div id="wilayah">
           <WilayahDesa />
         </div>
-
-        <div id="sejarah">
-          <SejarahDesa />
-        </div>
-
 
         <CpButton/>
         <Footer/>
