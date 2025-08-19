@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import kantorDesaDepan from "../../assets/kantor-desa-tengah.jpg";
+import kantorDesaDepan from "../../assets/fotodesa.jpeg";
 
 const RingkasanDesa = () => {
   return (
@@ -36,10 +36,7 @@ const RingkasanDesa = () => {
         
 
           <p className="text-base lg:text-lg text-gray-700 leading-relaxed mt-4">
-            <span className="text-primary md: text-2xl font-semibold">Desa Koka</span> adalah salah satu desa yang terletak di Kecamatan Tombulu, Kabupaten Minahasa, Sulawesi Utara. 
-            Dikenal dengan keindahan alam yang asri, potensi pariwisata yang berkembang, 
-            serta masyarakat yang ramah dan berbudaya. Dalam beberapa tahun terakhir, Desa Koka aktif mengembangkan 
-            potensi ekonomi lokal serta meningkatkan layanan digital kepada masyarakat.
+            <span className="text-primary md: text-2xl font-semibold">Desa Manggihan </span> adalah salah satu desa yang terletak di Kecamatan, Kabupaten Semarang. Dikenan dengan keindahan alam yang asri, potensi pertanian yang subur, serta masyarakat yang ramah dan berbudaya. Dalam beberapa tahun terakhir, Desa Manggihan aktif mengembangkan potensi ekonomi lokal serta meningkatkan infrastruktur desa untuk kemudahan masyarakat.
           </p>
         </motion.div>
 

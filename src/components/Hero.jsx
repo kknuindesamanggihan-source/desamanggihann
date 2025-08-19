@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaChevronCircleDown } from "react-icons/fa";
-import kantorDesaDepan from '../assets/kantor-desa-tengah.jpg';
-import kantorDesaSamping from '../assets/kantor-desa-samping.jpg';
+import kantorDesaDepan from '../assets/fotodesa.jpeg';
+import kantorDesaSamping from '../assets/fotodesa2.jpeg';
 import { motion, AnimatePresence } from "framer-motion";
 import NavbarHome from "./home/NavbarHome";
 import { Helmet } from "react-helmet";
@@ -73,7 +73,7 @@ const Hero = () => {
               textShadow: "1px 1px 4px rgba(0, 0, 0, 0.5)",
             }}
           >
-          Selamat Datang di Website Resmi Desa Koka
+          Selamat Datang di Website Resmi Desa Manggihan
           </motion.h1>
 
           <motion.h1
@@ -82,7 +82,7 @@ const Hero = () => {
               textShadow: "1px 1px 4px rgba(0, 0, 0, 0.5)",
             }}
           >
-            "Sumber Informasi terbaru pemerintahan Desa Koka"
+            "Sumber Informasi terbaru pemerintahan Desa Manggihan"
           </motion.h1>
         </div>
         <motion.div className="flex justify-center items-center">

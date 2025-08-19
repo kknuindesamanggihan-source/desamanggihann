@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import logoMinahasa from "../assets/logo-kab-minahasa.png";
+import logoMinahasa from "../assets/logodesa.jpg";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
@@ -42,8 +42,8 @@ const Navbar = () => {
         <div className="flex flex-row justify-start items-center gap-2">
           <img src={logoMinahasa} alt="Logo Minahasa" className="w-8 md:w-10 h-auto" />
           <div className="flex flex-col">
-            <h1 className="font-bold text-base md:text-xl text-primary">Desa Koka</h1>
-            <h1 className="font-normal text-sm md:text-xl text-dark">Kabupaten Minahasa</h1>
+            <h1 className="font-bold text-base md:text-xl text-primary">Desa Manggihan</h1>
+            <h1 className="font-normal text-sm md:text-xl text-dark">Kabupaten Semarang</h1>
           </div>
         </div>
 

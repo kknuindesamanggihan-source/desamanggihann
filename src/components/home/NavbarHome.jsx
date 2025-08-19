@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion } from "framer-motion";
-import logoMinahasa from "../../assets/logo-kab-minahasa.png";
+import logoMinahasa from "../../assets/logodesa.jpg";
 import { Link } from "react-router-dom";
 
 const NavbarMenu = [
@@ -39,12 +39,12 @@ const NavbarHome = () => {
         <div className="flex flex-row justify-start items-center gap-2 md:gap-4">
           <img
             src={logoMinahasa}
-            alt="Logo Kabupaten Minahasa"
+            alt="Logo Kabupaten Semarang"
             className="w-8 md:w-12 h-auto"
           /> 
           <div className="flex flex-col">
-            <h1 className="font-bold text-base md:text-lg lg:text-xl text-light">Desa Koka</h1>
-            <h1 className="font-normal text-sm md:text-base text-light">Kabupaten Minahasa</h1>
+            <h1 className="font-bold text-base md:text-lg lg:text-xl text-light">Desa Manggihan</h1>
+            <h1 className="font-normal text-sm md:text-base text-light">Kabupaten Semarang</h1>
           </div>
         </div>
         
