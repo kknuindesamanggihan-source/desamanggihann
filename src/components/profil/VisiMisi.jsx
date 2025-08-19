@@ -26,9 +26,9 @@ const VisiMisi = () => {
             >
               <h1 className="text-primary text-xl lg:text-3xl font-bold text-center">Visi</h1>
               <ul className="text-base lg:text-lg ">
-                <li>1. Terwujudnya Desa Koka yang maju, sejahtera, dan berdaya saing .</li> 
-                <li>2. Desa Koka yang aman, makmur, dan berakhlakul karimah . </li>
-                <li>3. Desa Koka yang unggul dalam pengelolaan sumber daya alam, pembangunan ekonomi berkelanjutan, dan pelayanan publik yang berkualitas . </li>
+                <li>1. Terwujudnya Desa Manggihan yang maju, sejahtera, dan berdaya saing .</li> 
+                <li>2. Desa Manggihan yang aman, makmur, dan berakhlakul karimah . </li>
+                <li>3. Desa Manggihan yang unggul dalam pengelolaan sumber daya alam, pembangunan ekonomi berkelanjutan, dan pelayanan publik yang berkualitas . </li>
               </ul>
             </motion.div>
 

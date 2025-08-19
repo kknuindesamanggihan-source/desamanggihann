@@ -30,13 +30,11 @@ const SejarahDesa = () => {
 
         {/* Konten narasi */}
         <p className="mb-4">
-          Desa Koka merupakan salah satu desa yang terletak di Kecamatan Tombulu, Kabupaten Minahasa, Sulawesi Utara.
-          Desa ini memiliki sejarah panjang sejak masa kolonial Belanda hingga kini berkembang sebagai desa yang aktif
-          dalam bidang pertanian dan pariwisata.
+           Desa Manggihan merupakan salah satu desa yang terletak di Kecamatan Getasan Kabupaten Semarang.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae adipisci perferendis et veritatis, atque blanditiis laudantium magni sunt sed iusto modi dolor quas, cum eius!
         </p>
         <p className="mb-4">
-          Menurut cerita masyarakat setempat, nama "Koka" berasal dari kata lokal yang berarti "tempat berteduh". Pada
-          masa lalu, daerah ini menjadi tempat peristirahatan bagi peladang yang bekerja di lahan pertanian sekitar.
+          lorem25
         </p>
 
         {/* Gambar tambahan di tengah konten */}
@@ -50,9 +48,7 @@ const SejarahDesa = () => {
         />
 
         <p className="mb-4">
-          Seiring berjalannya waktu, pemerintah desa terus melakukan pembangunan infrastruktur dan pengembangan sumber
-          daya manusia. Saat ini, Desa Koka dikenal sebagai desa yang asri, ramah lingkungan, serta memiliki potensi
-          wisata alam dan budaya yang menarik untuk dikunjungi.
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae minus nobis assumenda, magnam sapiente laudantium ipsum, aliquid ipsa ad quibusdam labore delectus? Eveniet corrupti vitae itaque placeat excepturi sit repellendus?
         </p>
         <p>
           Peninggalan budaya dan adat istiadat masih dijaga dengan baik oleh masyarakat desa, termasuk tradisi upacara

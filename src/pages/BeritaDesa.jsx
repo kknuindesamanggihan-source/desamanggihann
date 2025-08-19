@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Papa from "papaparse";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CpButton from "../components/cpButton";
@@ -7,18 +8,27 @@ import CpButton from "../components/cpButton";
 const BeritaPage = () => {
   const [beritaList, setBeritaList] = useState([]);
   const [selectedBerita, setSelectedBerita] = useState(null);
-  const [loading, setLoading] = useState(true); // State loading
+  const [loading, setLoading] = useState(true);
+
+  const SHEET_CSV_URL =
+    "https://docs.google.com/spreadsheets/d/1lUlj8vSmEfIhRKrHOv6c2McT7dSEROOb9qInl3D9x6I/export?format=csv&gid=0";
 
   useEffect(() => {
-    fetch("https://script.google.com/macros/s/AKfycbzjQMwp43GaXRVCNALIiHJ9jdKI4E_re8gBzrfHkYCaz3V9BgzFOF3NOz7fW89nW2y6/exec")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.berita) {
-          setBeritaList(data.berita);
-        }
+    fetch(SHEET_CSV_URL)
+      .then((res) => res.text())
+      .then((csvText) => {
+        Papa.parse(csvText, {
+          header: true,
+          complete: (result) => {
+            setBeritaList(result.data.filter((row) => row.Judul));
+            setLoading(false);
+          },
+        });
       })
-      .catch((err) => console.error("Gagal memuat data berita:", err))
-      .finally(() => setLoading(false)); // Set loading ke false
+      .catch((err) => {
+        console.error("Gagal memuat berita:", err);
+        setLoading(false);
+      });
   }, []);
 
   const openModal = (berita) => setSelectedBerita(berita);
@@ -30,35 +40,37 @@ const BeritaPage = () => {
         <div className="fixed top-0 left-0 w-full z-50 bg-light">
           <Navbar />
         </div>
-
         <motion.div
-        className="text-3xl md:text-4xl font-bold text-center text-primary mt-16 mb-8"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        Berita Desa
-      </motion.div>
+          className="text-3xl md:text-4xl font-bold text-center text-primary mt-16 mb-8"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Berita Desa
+        </motion.div>
 
-        {/* Loading State */}
         {loading ? (
           <p className="text-center text-gray-600 mt-20">Memuat berita...</p>
         ) : (
           <div className="grid md:grid-cols-2 gap-6 mt-14">
-            {beritaList.map((berita, index) => (
+            {beritaList.map((berita, i) => (
               <div
-                key={index}
+                key={i}
                 className="bg-white rounded-lg overflow-hidden shadow-md border border-gray-100"
               >
                 <img
-                  src={berita.gambar}
-                  alt={berita.judul}
+                  src={berita.Gambar}
+                  alt={berita.Judul}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h2 className="text-xl font-semibold text-dark mb-1">{berita.judul}</h2>
-                  <p className="text-sm text-gray-500 mb-2">{berita.tanggal}</p>
-                  <p className="text-gray-600 mb-4">{berita.kutipan}</p>
+                  <h2 className="text-xl font-semibold text-dark mb-1">
+                    {berita.Judul}
+                  </h2>
+                  <p className="text-sm text-gray-500 mb-2">
+                    {berita.Tanggal}
+                  </p>
+                  <p className="text-gray-600 mb-4">{berita.Kutipan}</p>
                   <button
                     onClick={() => openModal(berita)}
                     className="text-sm text-blue-600 hover:underline"
@@ -71,7 +83,6 @@ const BeritaPage = () => {
           </div>
         )}
 
-        {/* Modal */}
         <AnimatePresence>
           {selectedBerita && (
             <motion.div
@@ -89,13 +100,17 @@ const BeritaPage = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <img
-                  src={selectedBerita.gambar}
-                  alt={selectedBerita.judul}
+                  src={selectedBerita.Gambar}
+                  alt={selectedBerita.Judul}
                   className="w-full h-60 object-cover rounded-lg mb-4"
                 />
-                <h2 className="text-2xl font-bold mb-1">{selectedBerita.judul}</h2>
-                <p className="text-sm text-gray-500 mb-4">{selectedBerita.tanggal}</p>
-                <p className="text-gray-700">{selectedBerita.isi}</p>
+                <h2 className="text-2xl font-bold mb-1">
+                  {selectedBerita.Judul}
+                </h2>
+                <p className="text-sm text-gray-500 mb-4">
+                  {selectedBerita.Tanggal}
+                </p>
+                <p className="text-gray-700">{selectedBerita.Isi}</p>
                 <button
                   onClick={closeModal}
                   className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-xl"
@@ -107,8 +122,7 @@ const BeritaPage = () => {
           )}
         </AnimatePresence>
       </div>
-
-      <CpButton/>
+      <CpButton />
       <Footer />
     </section>
   );

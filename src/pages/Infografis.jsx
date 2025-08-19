@@ -36,7 +36,7 @@ function Infografis() {
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:container">
           <h1 className="text-2xl md:text-4xl font-bold text-primary text-center md:text-left">
-            Infografis <br /> Desa Koka
+            Infografis <br /> Desa Manggihan
           </h1>
 
           <div className="flex gap-6 ">

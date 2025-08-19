@@ -17,15 +17,15 @@ const PetaDesa = () => {
             </h1>
 
             <div className="flex justify-center items-center">
-              <iframe  
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43967.85616838432!2d124.83279775487959!3d1.4166593126493228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x328773331b45d719%3A0xeeaa2a9ed70c5e77!2sKoka%2C%20Kec.%20Tombulu%2C%20Kabupaten%20Minahasa%2C%20Sulawesi%20Utara!5e0!3m2!1sid!2sid!4v1745508368915!5m2!1sid!2sid"
-                width="800" 
-                height="450" 
-                style={{ border: 0 }} 
-                allowFullScreen 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade">
-              </iframe>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15839.81318465053!2d110.4285813!3d-7.2289134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708761163459c5%3A0xf6a7e025c8983815!2sManggihan%2C%20Kec.%20Getasan%2C%20Kabupaten%20Semarang%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1724037500584!5m2!1sid!2sid"
+                width="600"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </motion.div>

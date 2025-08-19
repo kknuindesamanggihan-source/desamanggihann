@@ -33,7 +33,7 @@ const PotensiDesaPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Potensi Desa Koka
+          Potensi Desa Manggihan
         </motion.div>
 
         {loading ? (

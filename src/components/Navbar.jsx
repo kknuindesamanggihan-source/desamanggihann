@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import logoMinahasa from "../assets/logodesa.jpg";
+import logoMinahasa from "../assets/logodesa.png";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
 

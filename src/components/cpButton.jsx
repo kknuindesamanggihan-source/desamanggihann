@@ -7,7 +7,7 @@ const CpButton = () => {
 
   const handleClick = () => {
     // Ganti nomor sesuai kebutuhan Anda (format internasional, tanpa tanda +)
-    window.open("https://wa.me/6282293529765", "_blank");
+    window.open("https://wa.me/62895332799929", "_blank");
   };
 
   return (
